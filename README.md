@@ -1,5 +1,4 @@
 # Basic-sentiment-analysis
-Introduction
 
 Welcome to my sentiment analysis project! In this project, I used the power of R programming to analyze and understand the sentiment of text data. Whether it's analyzing customer reviews, social media posts, or even movie reviews, sentiment analysis is a powerful tool for gaining insights from text data.
 How it works
