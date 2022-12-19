@@ -6,13 +6,12 @@ library(rtweet)
 options(max.print=100000)
 
 #1. Merge ALL files  
-obserwacje_all <- read_csv("/cloud/project/ov2_this_week.csv")
-obserwacje_all <- list.files(path="/cloud/project/AnalizaSentymentu_Dane", full.names = TRUE) %>% lapply(read_csv) %>% bind_rows 
+obserwacje_all <- list.files(path=file.choose(), T, full.names = TRUE) %>% lapply(read_csv) %>% bind_rows 
 
 #1.5 Select needed dates. I suggest we go with 2 first weeks.
 obserwacje_all_two_weeks <- filter(obserwacje_all, created_at < "2022-01-14")
 
-#1.6 Remove retweets!
+#1.6 Remove retweets
 obserwacje_all_two_weeks_NRT <- filter(obserwacje_all_two_weeks, is_retweet == FALSE)
 
 #2. Remove Duplicated 
