@@ -7,14 +7,15 @@ library(ggplot2)
 library(ggthemes)
 library(rtweet)
 library(wordcloud)
-library(syuzhet)
 library(lubridate)
+library(syuzhet)
 library(scales)
-library(reshape2)
 options(max.print=100000)
 
-CorpusCleanup <- function(mainFile = read_csv(file.choose(), T), userstopwords = '') {
+CorpusCleanup <- function(userstopwords = '') {
 
+  mainFile = read_csv(file.choose(), T)
+  
   #Create stopwords
   stopwords <- stopwords("en")
   stopwords_all <- c(stopwords, userstopwords)
@@ -53,10 +54,13 @@ frequencyBarPlot <- function(cleanset) {
   
 }
 
-bagOfWordsSentiment <- function(file = read.csv(file.choose(), header = T), plotTitle = '', ) {
+#sentiFile = read_csv(file.choose(), T)
 
+bagOfWordsSentiment <- function(plotTitle = '') {
+
+  sentiFile = read_csv(file.choose(), T)
   # Read file
-  sentiment <- file
+  sentiment <- sentiFile
   sentimentText <- iconv(sentiment$text, to = 'utf-8')
   
   # Obtain sentiment scores
