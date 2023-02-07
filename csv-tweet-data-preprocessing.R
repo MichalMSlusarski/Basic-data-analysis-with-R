@@ -1,7 +1,4 @@
-library(tm)
-library(dplyr) 
-library(tidyr)
-library(readr)
+library(tidyverse)
 library(data.table)
 library(rtweet)
 options(max.print=100000)
